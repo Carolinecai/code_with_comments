@@ -1070,8 +1070,8 @@ static int do_delete_checkpoint(struct hmfs_sb_info *sbi, block_t cur_addr)
 		prev_ver = le32_to_cpu(prev_cp->checkpoint_ver);
 	}
 
-	set_fs_state(last_cp, HMFS_RM_CP);
 	set_fs_state_arg(last_cp, cur_addr);
+	set_fs_state(last_cp, HMFS_RM_CP);
 
 	cur_root = ADDR(sbi, le64_to_cpu(cur_cp->nat_addr));
 	ret = __delete_checkpoint(sbi, cur_root, next_root,

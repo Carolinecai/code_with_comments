@@ -519,6 +519,7 @@ static inline void set_fs_state(struct hmfs_checkpoint *hmfs_cp, u8 state)
 {
 	set_fs_state_arg(hmfs_cp, 0);
 	hmfs_memcpy_atomic(&hmfs_cp->state, &state, 1);
+	clflush(&hmfs_cp->state);
 }
 
 static inline struct hmfs_super_block *next_super_block(
