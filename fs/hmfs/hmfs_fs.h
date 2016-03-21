@@ -518,6 +518,7 @@ static inline void set_fs_state_arg_2(struct hmfs_checkpoint *hmfs_cp, u64 value
 static inline void set_fs_state(struct hmfs_checkpoint *hmfs_cp, u8 state)
 {
 	set_fs_state_arg(hmfs_cp, 0);
+	native_wbinvd();
 	hmfs_memcpy_atomic(&hmfs_cp->state, &state, 1);
 	clflush(&hmfs_cp->state);
 }

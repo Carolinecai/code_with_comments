@@ -975,9 +975,9 @@ struct file_system_type hmfs_fs_type = {
 };
 
 #define AUTHOR_INFO "RADLAB SJTU"
-#define DEVICE_TYPE "Hybrid in-Memory File System"
+#define DEVICE_TYPE "Hybrid Memory File System"
 
-static int __init init_inodecache(void)
+static int init_inodecache(void)
 {
 	hmfs_inode_cachep = hmfs_kmem_cache_create("hmfs_inode_cache",
 					      sizeof(struct hmfs_inode_info), NULL);
